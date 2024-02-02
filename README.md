@@ -1,3 +1,3 @@
-# Anonymous submission
+# DIRAC ICML 24
 
-We will provide a GitHub page accompanying our paper.
+Here we will provide the source code and supplemenrary material for DIRAC: Diffusion-Based Representation Learning for Modality-Agnostic Compositionality
