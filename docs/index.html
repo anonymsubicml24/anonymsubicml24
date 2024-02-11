@@ -255,7 +255,7 @@ layout: default
             </thead>
             <tbody>
                 <tr>
-                    <td>1-A</td>
+                    <td>1A</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/real_0_0.wav" type="audio/wav">
@@ -268,7 +268,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>1-B</td>
+                    <td>1B</td>
                         <td>
                             <audio controls>
                                 <source src="./assets/audio/recomp/real_0_1.wav" type="audio/wav">
@@ -281,7 +281,7 @@ layout: default
                         </td>
                 </tr>
                 <tr>
-                    <td>2-A</td>
+                    <td>2A</td>
                         <td>
                             <audio controls>
                                 <source src="./assets/audio/recomp/real_1_0.wav" type="audio/wav">
@@ -294,7 +294,7 @@ layout: default
                         </td>
                 </tr>
                 <tr>
-                    <td>2-B</td>
+                    <td>2B</td>
                         <td>
                             <audio controls>
                                 <source src="./assets/audio/recomp/real_1_1.wav" type="audio/wav">
@@ -307,7 +307,7 @@ layout: default
                         </td>
                 </tr>
                 <tr>
-                    <td>3-A</td>
+                    <td>3A</td>
                         <td>
                             <audio controls>
                                 <source src="./assets/audio/recomp/real_2_0.wav" type="audio/wav">
@@ -320,7 +320,7 @@ layout: default
                         </td>
                 </tr>
                 <tr>
-                    <td>3-B</td>
+                    <td>3B</td>
                         <td>
                             <audio controls>
                                 <source src="./assets/audio/recomp/real_2_1.wav" type="audio/wav">
@@ -332,7 +332,7 @@ layout: default
                             </audio>
                         </td>
                 </tr>
-                <td>4-A</td>
+                <td>4A</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/real_3_0.wav" type="audio/wav">
@@ -345,7 +345,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>4-B</td>
+                    <td>4B</td>
                         <td>
                             <audio controls>
                                 <source src="./assets/audio/recomp/real_3_1.wav" type="audio/wav">
@@ -370,7 +370,7 @@ layout: default
             </thead>
             <tbody>
                 <tr>
-                    <td>1-A + 1-B</td>
+                    <td>1A + 1B</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_0_0.wav" type="audio/wav">
@@ -378,7 +378,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>1-B + 1-A</td>
+                    <td>1B + 1A</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_0_1.wav" type="audio/wav">
@@ -386,7 +386,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>2-A + 2-B</td>
+                    <td>2A + 2B</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_1_0.wav" type="audio/wav">
@@ -394,7 +394,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>2-B + 2-A</td>
+                    <td>2B + 2A</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_1_1.wav" type="audio/wav">
@@ -402,7 +402,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>3-A + 3-B</td>
+                    <td>3A + 3B</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_2_0.wav" type="audio/wav">
@@ -410,7 +410,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>3-B + 3-A</td>
+                    <td>3B + 3A</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_2_1.wav" type="audio/wav">
@@ -418,7 +418,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>4-A + 4-B</td>
+                    <td>4A + 4B</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_3_0.wav" type="audio/wav">
@@ -426,7 +426,7 @@ layout: default
                     </td>
                 </tr>
                 <tr>
-                    <td>4-B + 4-A</td>
+                    <td>4B + 4A</td>
                     <td>
                         <audio controls>
                             <source src="./assets/audio/recomp/mix_3_1.wav" type="audio/wav">
@@ -439,9 +439,219 @@ layout: default
     <h2 id="audio-single-sources">Drums only</h2> 
 
     <p class="justified-text">In the following table, we report the reconstructions and latent variables obtained with 
-        a model trained on the drums stems of the MUSDB dataset. We vary the number of latent variables from 2 to 8 and
-        report the reconstructions and the audio encoded in each latent variable.</p>
+        a model trained on the drums stems of the MUSDB dataset. We train two models with, respectively, 4 and 8 latent variables.
+        As previously stated, we did not spend a lot of time cherry-picking the results. Here, we wanted to show how
+        the different latents can encode different elements of the drums such as the low-end or high-end of the kick, the snare or the hi-hats.
+    </p>
     <br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sample</th>
+                <th>Original Audio</th>
+                <th>Reconstructed Audio</th>
+                <th>Latent 1</th>
+                <th>Latent 2</th>
+                <th>Latent 3</th>
+                <th>Latent 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/real1_drums_4comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/recon1_drums_4comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp11_drums_4comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp12_drums_4comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp13_drums_4comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp14_drums_4comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/real1_drums_4comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/recon1_drums_4comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp11_drums_4comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp12_drums_4comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp13_drums_4comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp14_drums_4comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sample</th>
+                <th>Original Audio</th>
+                <th>Reconstructed Audio</th>
+                <th>Latent 1</th>
+                <th>Latent 2</th>
+                <th>Latent 3</th>
+                <th>Latent 4</th>
+                <th>Latent 5</th>
+                <th>Latent 6</th>
+                <th>Latent 7</th>
+                <th>Latent 8</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/real1_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/recon1_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp11_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp12_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp13_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp14_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp15_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp16_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp17_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp18_drums_8comp_A.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/real1_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/recon1_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp11_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp21_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp13_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp14_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp15_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp16_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp17_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/drums/comp18_drums_8comp_B.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
