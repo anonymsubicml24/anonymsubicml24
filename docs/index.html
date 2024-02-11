@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<!DOCTYPE HTML>
+<head>
+	<style>
+		.justified-text {
+		text-align: justify;
+		}
+		.carousel-container {
+		width: 95%;
+		margin: auto;
+		overflow: hidden;
+		}
+
+		.carousel {
+		display: flex;
+		transition: transform 0.5s ease-in-out;
+		}
+
+		.carousel img {
+		width: 100%;
+		height: auto;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>DIRAC: Diffusion-Based Representation Learning for Modality-Agnostic Compositionality</h1>
+
+	<p class="justified-text"><em>This website is still under construction and is linked to our paper submission to the <a href="https://icml.cc/">ICML 2024</a> Conference.</em></p>
+	<br>
+    
+    <h2 id="abstract">Abstract</h2>
+	<p class="justified-text">In this paper, we target the extrapolation and out-of-distribution generation 
+        problem in generative models by introducing a generic compositional inductive bias. 
+        Leveraging state-of-the-art generative models in an encoder-decoder scheme, our approach 
+        focuses on compositional representation learning without any form of supervision. 
+        We perform experiments on image and audio data, demonstrating the adaptability of our 
+        model to different modalities and representations. Our Diffusion-based Representation 
+        Learning for Modality-Agnostic Compositionality (DIRAC), builds upon diffusion models 
+        and shows promising results in separating meaningful entities in both images and music, 
+        serving as a powerful baseline for future investigations around compositional generation 
+        and representation learning.
+	</p>
+	Here, we provide supplementary materials, specifically focusing on the audio experiments.
+
+    <h2 id="model-overview">Overview</h2>  
+    
+    <p class="justified-text">As depicted in the Figure below, a sample is mapped to a set 
+        of latent variables through an encoder. These variables are used to condition a 
+        diffusion model that is responsible for generating a portion of the data. 
+        The generations are then fed to a composition operator that reconstructs the input.
+	</p>
+
+    <p class="justified-text">
+		<img src="./assets/img/model_images.png" alt="images architecture">
+	</p>
+
+    <p class="justified-text">For audio experiments, we apply the aforementioned approach in
+        the latent space of a pre-trained Variational Autoencoder, specifically the EnCodec model.
+	</p>
+
+    <p class="justified-text">
+		<img src="./assets/img/model_audio.png" alt="audio architecture">
+	</p>
+
+
+</body>
+</html>
