@@ -71,8 +71,9 @@ layout: default
 
     <p class="justified-text">In the following table, we report the reconstructions obtained through our model 
         trained with 2 latent variables on the mixuture of drums and bass stems of the MUSDB dataset. 
-        This model (15.1M parameters U-Net + 400K parameters encoder) has been trained for 1000 epochs using the <em>mean</em>
-        composition operator. Please refer to the paper for more details. 
+        This model (15.1M parameters U-Net + 500K parameters encoder) has been trained for 64000 iterations with
+        a batch size of 64 using the <em>mean</em>
+        composition operator (approximately 4 hours on a NVIDIA A6000 GPU). Please refer to the paper for more details. 
         While also providing the audio encoded in each latent variable, we emphasize that this model is not built with
         the intention of performing unsupervised source separation in the latent space. Our goal, instead, is 
         to learn interpretable and composable representations and, in this case, these representations seem to align
@@ -232,6 +233,215 @@ layout: default
         </tbody>
     </table>
 
+    <br>
+    <h2 id="audio-generations">Audio generations by recomposition</h2> 
+
+    <p class="justified-text">In the following table, we report the generations-by-recomposition obtained with 
+        the same model used for the reconstructions. We take two random input samples, decode them into their respective 
+        sets of latent variables and then, once mixed, we recompose them to generate new samples.
+        We drew some samples and produced the relative re-compositions, we then picked the following examples. 
+        While this is a form of cherry picking we emphasize that we did not spend a lot of time selecting 
+        the very best sources and re-compositions.
+    </p>
+    <br>
+    <h3 id="audio-generations">Real & reconstructed</h2> 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Sample</th>
+                    <th>Original Audio</th>
+                    <th>Reconstructed Audio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1-A</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/real_0_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/recon_0_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1-B</td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/real_0_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/recon_0_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                </tr>
+                <tr>
+                    <td>2-A</td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/real_1_0.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/recon_1_0.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                </tr>
+                <tr>
+                    <td>2-B</td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/real_1_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/recon_1_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                </tr>
+                <tr>
+                    <td>3-A</td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/real_2_0.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/recon_2_0.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                </tr>
+                <tr>
+                    <td>3-B</td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/real_2_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/recon_2_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                </tr>
+                <td>4-A</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/real_3_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/recon_3_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4-B</td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/real_3_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls>
+                                <source src="./assets/audio/recomp/recon_3_1.wav" type="audio/wav">
+                            </audio>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    <h3 id="audio-generations">Recomposed</h2> 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Sources</th>
+                    <th>Recomposed Audio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1-A + 1-B</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_0_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1-B + 1-A</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_0_1.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2-A + 2-B</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_1_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2-B + 2-A</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_1_1.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3-A + 3-B</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_2_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3-B + 3-A</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_2_1.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4-A + 4-B</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_3_0.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4-B + 4-A</td>
+                    <td>
+                        <audio controls>
+                            <source src="./assets/audio/recomp/mix_3_1.wav" type="audio/wav">
+                        </audio>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2 id="audio-single-sources">Drums only</h2> 
+
+    <p class="justified-text">In the following table, we report the reconstructions and latent variables obtained with 
+        a model trained on the drums stems of the MUSDB dataset. We vary the number of latent variables from 2 to 8 and
+        report the reconstructions and the audio encoded in each latent variable.</p>
+    <br>
 
 </body>
 </html>
