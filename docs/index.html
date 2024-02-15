@@ -38,13 +38,13 @@ layout: default
         focuses on compositional representation learning without any form of supervision. 
         We perform experiments on image and audio data, demonstrating the adaptability of our 
         model to different modalities and representations. Our <b>Di</b>ffusion-based <b>R</b>epresentation 
-        Learning for Modality-<b>A</b>gnostic <b>C</b>ompositionality (<b>DIRCA</b>), builds upon diffusion models 
+        Learning for Modality-<b>A</b>gnostic <b>C</b>ompositionality (<b>DIRAC</b>), builds upon diffusion models 
         and shows promising results in separating meaningful entities in both images and music, 
         serving as a powerful baseline for future investigations around compositional generation 
         and representation learning.
 	</p>
     <br>
-    <p class="justified-text">In this work, we use the same architecture for both image and (latent) audio data.
+    <p class="justified-text"><b>Note.</b> In this work, we use the same architecture for both image and (latent) audio data.
         While using more specialized architectures for each modality could lead to better results, we aim to show that
         our approach is generic and can be applied to different modalities and data representations without any modification.
         Therefore, we do not aim to achieve state-of-the-art results in generation quality, but rather to show that
@@ -52,9 +52,9 @@ layout: default
 	</p>
     <br>
 	Here, we provide supplementary materials, specifically focusing on the audio experiments.
-    <br>
+    <br/>
+
     <h2 id="model-overview">Overview</h2>  
-    
     <p class="justified-text">As depicted in the figure below, a sample is mapped to a set 
         of latent variables through an encoder. These variables are used to condition a 
         diffusion model that is responsible for generating a portion of the data. 
