@@ -37,15 +37,22 @@ layout: default
         Leveraging state-of-the-art generative models in an encoder-decoder scheme, our approach 
         focuses on compositional representation learning without any form of supervision. 
         We perform experiments on image and audio data, demonstrating the adaptability of our 
-        model to different modalities and representations. Our Diffusion-based Representation 
-        Learning for Modality-Agnostic Compositionality (DIRAC), builds upon diffusion models 
+        model to different modalities and representations. Our <b>Di</b>ffusion-based <b>R</b>epresentation 
+        Learning for Modality-<b>A</b>gnostic <b>C</b>ompositionality (<b>DIRCA</b>), builds upon diffusion models 
         and shows promising results in separating meaningful entities in both images and music, 
         serving as a powerful baseline for future investigations around compositional generation 
         and representation learning.
 	</p>
     <br>
+    <p class="justified-text">In this work, we use the same architecture for both image and (latent) audio data.
+        While using more specialized architectures for each modality could lead to better results, we aim to show that
+        our approach is generic and can be applied to different modalities and data representations without any modification.
+        Therefore, we do not aim to achieve state-of-the-art results in generation quality, but rather to show that
+        our approach could be a powerful baseline for future investigations around compositional generation and representation learning.
+	</p>
+    <br>
 	Here, we provide supplementary materials, specifically focusing on the audio experiments.
-
+    <br>
     <h2 id="model-overview">Overview</h2>  
     
     <p class="justified-text">As depicted in the figure below, a sample is mapped to a set 
@@ -58,8 +65,11 @@ layout: default
 		<img src="./assets/img/model_images.png" alt="images architecture">
 	</p>
     <br>
+    <h2 id="audio-overview">Experimental setup for audio</h2>  
     <p class="justified-text">For audio experiments, we apply the aforementioned approach in
         the latent space of a pre-trained Variational Autoencoder, specifically the EnCodec model.
+        We map the audio samples to a continuous latent trajectory through EnCodec and then apply the DIRAC model.
+        We did not train EnCodec, but relied on a <a href="https://github.com/facebookresearch/encodec">pre-trained checkpoint provided by the authors.</a>
 	</p>
     <br>
     <p class="justified-text">
@@ -70,14 +80,20 @@ layout: default
     <h2 id="audio-reconstructions">Audio reconstructions</h2> 
 
     <p class="justified-text">In the following table, we report the reconstructions obtained through our model 
-        trained with 2 latent variables on the mixuture of drums and bass stems of the MUSDB dataset. 
+        trained with 2 latent variables on the mixuture of drums and bass stems of the <a href="https://sigsep.github.io/datasets/musdb.html">MUSDB dataset</a>. 
         This model (15.1M parameters U-Net + 500K parameters encoder) has been trained for 64000 iterations with
         a batch size of 64 using the <em>mean</em>
         composition operator (approximately 4 hours on a NVIDIA A6000 GPU). Please refer to the paper for more details. 
+        <br/>
         While also providing the audio encoded in each latent variable, we emphasize that this model is not built with
         the intention of performing unsupervised source separation in the latent space. Our goal, instead, is 
         to learn interpretable and composable representations and, in this case, these representations seem to align
-        with the drums and bass stems that compose the original audio.
+        with the drums and bass stems that compose the original audio. This "separation" emerges naturally from
+        the training setup, in an unsupervised manner, while using a latent representation of audio obtained with a 
+        pre-trained open-source model.
+        <br/>
+        <b>Warning.</b> Some audio examples may contain loud sounds. Please adjust the volume accordingly. We suggest
+        to use headphones for a better listening experience.
 	</p>
     <br>
 
@@ -239,9 +255,13 @@ layout: default
     <p class="justified-text">In the following table, we report the generations-by-recomposition obtained with 
         the same model used for the reconstructions. We take two random input samples, decode them into their respective 
         sets of latent variables and then, once mixed, we recompose them to generate new samples.
-        We drew some samples and produced the relative re-compositions, we then picked the following examples. 
+        <br/>
+        <b>A note on cherry picking.</b>  We drew some samples and produced the relative re-compositions, we then picked the following examples. 
         While this is a form of cherry picking we emphasize that we did not spend a lot of time selecting 
         the very best sources and re-compositions.
+        <br/>
+        <b>Warning.</b> Some audio examples may contain loud sounds. Please adjust the volume accordingly. We suggest
+        to use headphones for a better listening experience.
     </p>
     <br>
     <h3 id="audio-generations">Real & reconstructed</h2> 
@@ -442,6 +462,9 @@ layout: default
         a model trained on the drums stems of the MUSDB dataset. We train two models with, respectively, 4 and 8 latent variables.
         As previously stated, we did not spend a lot of time cherry-picking the results. Here, we wanted to show how
         the different latents can encode different elements of the drums such as the low-end or high-end of the kick, the snare or the hi-hats.
+        <br/>
+        <b>Warning.</b> Some audio examples may contain loud sounds. Please adjust the volume accordingly. We suggest
+        to use headphones for a better listening experience.
     </p>
     <br>
 
