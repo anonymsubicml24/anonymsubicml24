@@ -684,5 +684,139 @@ layout: default
         </tbody>
     </table>
 
+    <br>
+    <h2 id="added-examples">Rebuttal: added results on audio</h2> 
+
+    <p class="justified-text">In this section we provide additional results on 3-sources (Drums + Bass + Piano) and 2-sources (Drums + Bass)
+        in order to show that our framework can be applied to more complex cases. These models have been trained on the Slakh1200 dataset.
+        We found that by increasing the size of the dataset and performing small architectural adjustments, we could already achieve better results
+        in terms of generalizability and reconstruction quality. We also report the relative spectrograms for visualizations.
+    </p>
+    
+    <p class="justified-text">In the following table, we report the reconstructions obtained with the model.
+        <br/>
+        <b>Warning.</b> Some audio examples may contain loud sounds. Please adjust the volume accordingly. We suggest
+        to use headphones for a better listening experience.
+    </p>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sample</th>
+                <th>Original Audio</th>
+                <th>Reconstructed Audio</th>
+                <th>Latent 1</th>
+                <th>Latent 2</th>
+                <th>Latent 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/4_real.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/4_recon.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/4_bass.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/4_drums.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/4_piano.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p class="justified-text">
+		<img src="./assets/audio/rebuttal/4_real_rec.png" alt="spec 4">
+	</p>
+    <br>
+    <p class="justified-text">
+		<img src="./assets/audio/rebuttal/4_recon.wav" alt="spec 4">
+	</p>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sample</th>
+                <th>Original Audio</th>
+                <th>Reconstructed Audio</th>
+                <th>Latent 1</th>
+                <th>Latent 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_real_1.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_recon_1.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_bass_1.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_drums_1.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_real_2.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_recon_2.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_bass_2.wav" type="audio/wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="./assets/audio/rebuttal/2_drums_2.wav" type="audio/wav">
+                    </audio>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p class="justified-text">
+		<img src="./assets/audio/rebuttal/2_real_rec.png" alt="spec 4">
+	</p>
+    <br>
+    <p class="justified-text">
+		<img src="./assets/audio/rebuttal/2_stems.png" alt="spec 4">
+	</p>
+
 </body>
 </html>
